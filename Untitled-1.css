@@ -1,0 +1,160 @@
+:root {
+  /* EDIT: change these to restyle the whole site (Part B asks for one colour or font change) */
+  --paper: #f4f6f8;
+  --ink: #0f1b2d;
+  --muted: #566274;
+  --line: #d5dbe3;
+  --accent: #1f4fd8;
+  --heading-font: 'Newsreader', Georgia, serif;
+  --body-font: 'Public Sans', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body-font);
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+a { color: var(--accent); }
+a:focus-visible, .button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+h1, h2, h3 {
+  font-family: var(--heading-font);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0;
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  padding: 0.9rem 1.5rem;
+  background: rgba(244, 246, 248, 0.94);
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  font-family: var(--heading-font);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+}
+.site-header nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; }
+.site-header nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 500;
+}
+.site-header nav a:hover { color: var(--accent); }
+
+main, .site-footer { max-width: 60rem; margin: 0 auto; padding: 0 1.5rem; }
+
+/* Hero */
+.hero {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  padding: 5rem 0 4rem;
+}
+.hero-text { flex: 1 1 22rem; }
+.hero h1 { font-size: clamp(3rem, 9vw, 5.5rem); letter-spacing: -0.02em; }
+.tagline { max-width: 28rem; margin: 1.25rem 0 2rem; font-size: 1.25rem; color: var(--muted); }
+.profile {
+  width: 13rem;
+  height: 13rem;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  box-shadow: 0 0 0 1px var(--line);
+  background: var(--line);
+}
+.button {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0.4rem;
+}
+.button:hover { background: var(--ink); }
+
+/* Sections */
+.block {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 1rem 2rem;
+  padding: 3rem 0;
+  border-top: 1px solid var(--line);
+}
+.block h2 { font-size: 1.9rem; }
+.block-body p { margin: 0; max-width: 40rem; }
+
+/* Skills */
+.skills { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.skills li {
+  padding: 0.35rem 1rem;
+  border: 1px solid var(--accent);
+  border-radius: 2rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Projects */
+.projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 2rem; }
+.project img {
+  display: block;
+  width: 100%;
+  max-width: 14rem;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0.4rem;
+  background: var(--line);
+  margin-bottom: 1rem;
+}
+.project h3 { font-size: 1.4rem; margin-bottom: 0.3rem; }
+.project p { margin: 0; color: var(--muted); }
+
+/* Contact */
+.contact { list-style: none; margin: 0; padding: 0; }
+.contact li { display: flex; gap: 1.5rem; padding: 0.55rem 0; border-bottom: 1px solid var(--line); }
+.contact li:last-child { border-bottom: 0; }
+.contact span { flex: 0 0 5.5rem; color: var(--muted); }
+
+/* Footer */
+.site-footer { padding-top: 2rem; padding-bottom: 3rem; border-top: 1px solid var(--line); color: var(--muted); }
+.site-footer p { margin: 0; }
+
+/* Mobile */
+@media (max-width: 40rem) {
+  .block { grid-template-columns: 1fr; padding: 2.25rem 0; }
+  .hero { padding: 3rem 0 2.5rem; }
+  .profile { width: 10rem; height: 10rem; }
+  .contact li { flex-direction: column; gap: 0; }
+}
+
+/* Experience, education, awards */
+.entry { margin-bottom: 1.75rem; }
+.entry:last-child { margin-bottom: 0; }
+.entry h3 { font-size: 1.3rem; margin-bottom: 0.3rem; }
+.entry p { margin: 0; color: var(--muted); }
+.entry ul { margin: 0.4rem 0 0; padding-left: 1.2rem; color: var(--muted); }
+.entry li { margin-bottom: 0.25rem; }
+.site-header nav { font-size: 0.95rem; }
